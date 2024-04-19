@@ -59,11 +59,15 @@ int main() {
     cin >> x0 >> y0;
     cout << "Введите точность eps: ";
     cin >> eps;
-    try {
+    /*try {
         vector<double> roots = newtonRaphson(x0, y0, eps);
         cout << "Найденные корни системы уравнений: x = " << roots[0] << ", y = " << roots[1] << endl;
     } catch (const exception& e) {
         cerr << "Ошибка: " << e.what() << endl;
-    }
+    }*/
+    vector<double> roots = newtonRaphson(x0, y0, eps);
+    cout << "Найденные корни системы уравнений: x = " << roots[0] << ", y = " << roots[1] << endl;
+    cout << f1(roots[0], roots[1]) << endl;
+    cout << f2(roots[0], roots[1]) << endl;
 }
 //x = 0.664594, y = 0.581926
