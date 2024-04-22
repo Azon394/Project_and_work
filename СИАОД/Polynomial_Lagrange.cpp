@@ -75,13 +75,18 @@ std::vector<double> get_polynomial(std::vector<double> _xi, std::vector<double> 
     return L;
 }
 
+double f(double x) {
+    return 1.75+1.81*x-0.6675*x*x+0.115*pow(x,3)-0.0075*pow(x,4);
+}
+
 int main() {
     std::vector<double> xi = {1, 2, 3, 4, 5};
     std::vector<double> yi = {3, 3.5, 3.67, 3.75, 3.8};
     std::vector<double> L = get_polynomial(xi, yi);
-    for (double n : L) {
-        std::cout << n << " ";
+    for (int i = 0; i < 5; i++) {
+        std::cout << L[i] << "*x^" << i << ' ';
     }
+    std::cout<<f(4.5);
 
 }
 

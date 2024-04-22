@@ -38,6 +38,7 @@ vector<vector<double>> Jacobian(double x, double y) {
 vector<double> newtonRaphson(double x0, double y0, double eps) {
     double x = x0, y = y0;
     vector<double> Fx = F(x, y);
+    int i = 0;
     while (abs(Fx[0]) > eps || abs(Fx[1]) > eps) {
         vector<vector<double>> J = Jacobian(x, y);
         double detJ = J[0][0]*J[1][1] - J[0][1]*J[1][0];
@@ -49,7 +50,9 @@ vector<double> newtonRaphson(double x0, double y0, double eps) {
         x -= dx;
         y -= dy;
         Fx = F(x, y);
+        i++;
     }
+    cout << i << endl;
     return {x, y};
 }
 
