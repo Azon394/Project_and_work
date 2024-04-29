@@ -1,8 +1,10 @@
 #include <iostream>
 #include <cmath>
+using namespace std;
+typedef double(*pointFunc)(double);
 
 double f(double x) {
-    return (log(sin(x)) - pow(x, -2));     
+    return (x*x+4*x+4);
     //(log(sin(x)) - pow(x, -2)) - гладкая
     //(1/(abs(x) + 0.01)) - острая
     //sin(x) - переодическая
@@ -32,8 +34,17 @@ double quad_asr(double a, double fa, double b, double fb, double eps, double who
            quad_asr(m, fm, b, fb, eps / 2, right, rm, frm);
 }
 
+double integ(pointFunc f, double a, double b, double eps) {
+    double fa = f(a);
+    double fb = f(b);
+    double m, fm, whole, result;
+    std::tie(m, fm, whole) = quad_simpsons_mem(a, fa, b, fb);
+    result = quad_asr(a, fa, b, fb, eps, whole, m, fm);
+    return result;
+}
+
 int main() {
-    double a, b, eps, result;
+    /*double a, b, eps, result;
     std::cout << "a, b, eps: " << std::endl;
     std::cin >> a >> b >> eps; // считываем значения
     double fa = f(a);
@@ -41,5 +52,6 @@ int main() {
     double m, fm, whole;
     std::tie(m, fm, whole) = quad_simpsons_mem(a, fa, b, fb);
     result = quad_asr(a, fa, b, fb, eps, whole, m, fm);;
-    std::cout << "Result: " << result << std::endl;
+    std::cout << "Result: " << result << std::endl*/;
+    cout << integ(f, 0, 2, 0.001);
 }
