@@ -29,7 +29,7 @@ int main() {
             xp.push_back(i);
             fp.push_back(exp(i));
             cout << fp.back() << endl;
-            xs = {1.05, 1.09, 1.13, 1.15, 1.17};
+            xs = {1.07, 1.11, 1.14, 1.15, 1.19};
         }
     } else if (action == 2) {
         for (double i = 1; i <= 1.2001; i += 0.04) {
@@ -69,7 +69,7 @@ int main() {
             xp.push_back(i);
             fp.push_back(cos(i));
             cout << fp.back() << endl;
-            xs = {1.05, 1.09, 1.13, 1.15, 1.17};
+            xs = {1.07, 1.11, 1.14, 1.15, 1.19};
         }
     } else if (action == 7) {
         for (double i = 1; i <= 1.2001; i += 0.04) {
