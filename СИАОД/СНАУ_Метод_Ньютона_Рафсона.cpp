@@ -3,24 +3,31 @@
 #include <cmath>
 using namespace std;
 
-// Функции системы и их производные
-double f1(double x, double y) {
-    return cos(y) + x - 1.5;
+/*double f1(double x, double y) {
+    return sin(y - 0.5) - x -1;
 }
 double f2(double x, double y) {
-    return 2*y - sin(x - 0.5) - 1;
+    return cos(x-2) + y;
+}*/
+
+// Функции системы и их производные
+double f1(double x, double y) {
+    return sin(y - 0.5) - x -1;
 }
-double df1dx(double x, double /*y*/) {
-    return 1;
+double f2(double x, double y) {
+    return cos(x-2) + y;
 }
-double df1dy(double /*x*/, double y) {
-    return -sin(y);
+double df1dx(double x, double y) {
+    return -1;
 }
-double df2dx(double x, double /*y*/) {
-    return -cos((2*x - 1)/2);
+double df1dy(double x, double y) {
+    return cos((2*y-1)/2);
+}
+double df2dx(double x, double y) {
+    return -sin(x-2);
 }
 double df2dy(double x, double y) {
-    return 2;
+    return 1;
 }
 
 // Вектор-функция F(x, y)
